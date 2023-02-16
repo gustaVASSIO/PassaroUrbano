@@ -20,6 +20,11 @@ export class HomeComponent {
   }
   ngOnInit(){
     //this.offers = this.offerService.getOffers()
-    this.offerService.getOffers2().then((offers:Offer[]) => this.offers = offers)
+    this.offerService.getOffers()
+    .then((offers: Offer[]) => {
+      console.log(offers)
+      this.offers = offers
+    })
+    .catch((error: any)=>console.log(error.status, error.msg))
   }
 }
