@@ -1,5 +1,6 @@
+import { Offer } from "../shared/offer.model"
 export class OfferService{
-    public offers: Array<any> = [
+    public offers: Array<Offer> = [
         {
             id: 1,
             category: "restaurante",
@@ -49,7 +50,13 @@ export class OfferService{
             ]
         }
     ]
-    public getOffers():Array<any>{
+    public getOffers():Array<Offer>{
         return this.offers
+    }
+    // Utilizando metodo getOffers de forma assíncrona
+    public getOffers2():Promise<Array<Offer>>{
+        return new Promise((resolve,reject)=>{
+            resolve(this.offers)
+        })
     }
 }
