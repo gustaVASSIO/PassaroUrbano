@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OfferComponent } from './offer.component';
+import { LocaleComponent } from './locale.component';
 
-describe('OfferComponent', () => {
-  let component: OfferComponent;
-  let fixture: ComponentFixture<OfferComponent>;
+describe('LocaleComponent', () => {
+  let component: LocaleComponent;
+  let fixture: ComponentFixture<LocaleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OfferComponent ]
+      declarations: [ LocaleComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OfferComponent);
+    fixture = TestBed.createComponent(LocaleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -3,23 +3,26 @@ import { Injectable } from "@angular/core"
 import { firstValueFrom } from "rxjs"
 import { Offer } from "../shared/offer.model"
 
-@Injectable()//é necessário decorar a classe com essa diretiva para indicar que ela poderá reeceber um serviço externo
+@Injectable()//é necessário decorar a classe com essa diretiva para indicar que ela poderá fornecer um serviço
 export class OfferService{
+
+    private urlAPI: string = 'http://localhost:3000'
+
     public offers: Offer[] = []
     constructor(private http: HttpClient){}
     
     public getOffers():Promise<Array<Offer>>{
-        return firstValueFrom(this.http.get("http://localhost:3000/offers"))
+        return firstValueFrom(this.http.get(`${this.urlAPI}/offers`))
                 .then((res: any)=>res)
     }
     public getOffersByCategory(category: string): Promise<Array<Offer>>{
-        return firstValueFrom(this.http.get("http://localhost:3000/offers?category="+category))
+        return firstValueFrom(this.http.get(`${this.urlAPI}/offers?category=`+category))
                     .then((res: any)=>res)
     }
 
-    public getOfferById(id: number):Promise<Array<Offer>>{
-        return firstValueFrom(this.http.get("http://localhost:3000/offers?id="+id))
-                .then((res: any)=>res)
+    public getOfferById(id: number):Promise<Offer>{
+        return firstValueFrom(this.http.get(`${this.urlAPI}/offers?id=`+id))
+                .then((res: any)=>res[0])
     }
 
     // Utilizando metodo getOffers de forma assíncrona

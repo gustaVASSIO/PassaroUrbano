@@ -10,6 +10,8 @@ import { EntertainmentComponent } from './entertainment/entertainment.component'
 import {ROUTES} from './app.routes';
 import { Router, RouterModule } from '@angular/router';
 import { OfferComponent } from './offer/offer.component';
+import { HowToUseComponent } from './offer/how-to-use/how-to-use.component';
+import { LocaleComponent } from './offer/locale/locale.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { OfferComponent } from './offer/offer.component';
     FooterComponent,
     RestaurantComponent,
     EntertainmentComponent,
-    OfferComponent
+    OfferComponent,
+    HowToUseComponent,
+    LocaleComponent
   ],
   imports: [
     BrowserModule,

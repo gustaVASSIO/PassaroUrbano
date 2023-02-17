@@ -22,7 +22,7 @@ export class HomeComponent {
     //this.offers = this.offerService.getOffers()
     this.offerService.getOffers()
     .then((offers: Offer[]) => {
-      console.log(offers)
+      // console.log(offers)
       this.offers = offers
     })
     .catch((error: any)=>console.log(error.status, error.msg))
