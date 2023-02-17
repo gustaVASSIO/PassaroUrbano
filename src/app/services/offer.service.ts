@@ -24,7 +24,12 @@ export class OfferService{
         return firstValueFrom(this.http.get(`${this.urlAPI}/offers?id=`+id))
                 .then((res: any)=>res[0])
     }
-
+    public getHowToUseById(id: number): Promise<string>{
+        return firstValueFrom(this.http.get(`${this.urlAPI}/how-to-use?id=${id}`))
+                .then((res: any)=>{
+                    return res[0]
+                })
+    }
     // Utilizando metodo getOffers de forma assíncrona
 //     public getOffers2():Promise<Array<Offer>>{
         
