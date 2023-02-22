@@ -27,8 +27,17 @@ export class OfferService{
     public getHowToUseById(id: number): Promise<string>{
         return firstValueFrom(this.http.get(`${this.urlAPI}/how-to-use?id=${id}`))
                 .then((res: any)=>{
-                    return res[0]
+                    return res[0].description
                 })
+    }
+    public getLocaleById(id: number): Promise<string>{
+        return firstValueFrom(this.http.get(`${this.urlAPI}/locale?id=${id}`))
+                .then((res: any)=>{
+                    return res[0].description
+                })
+    }
+    public searchOffer(): any{
+
     }
     // Utilizando metodo getOffers de forma assíncrona
 //     public getOffers2():Promise<Array<Offer>>{

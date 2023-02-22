@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OfferService } from 'src/app/services/offer.service';
 import { Offer } from 'src/app/shared/offer.model';
+import { Observable, interval, Subscription } from 'rxjs';
 @Component({
   selector: 'app-how-to-use',
   templateUrl: './how-to-use.component.html',
@@ -9,6 +10,8 @@ import { Offer } from 'src/app/shared/offer.model';
   providers:[OfferService]
 })
 export class HowToUseComponent {
+  private timeObservableSubscription?: Subscription
+  private myObservableSubscription?: Subscription
   public description: string =''
   constructor
   (
@@ -18,9 +21,9 @@ export class HowToUseComponent {
   ngOnInit(){
     const id = this.route.parent?.snapshot.params['id']
     this.offer_service.getHowToUseById(id)
-    .then((description: string)=>{
+    .then((description:string)=>{
         this.description = description
-    })
+    }) 
   }
 
 }

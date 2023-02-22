@@ -22,3 +22,10 @@
 .active {
     color: #FFF 
 }
+
+#search{
+    margin-top: 10px;
+}
+#search input{
+    width: 400px;
+}

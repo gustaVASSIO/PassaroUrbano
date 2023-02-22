@@ -4,7 +4,8 @@ import { Offer } from '../shared/offer.model';
 @Component({
   selector: 'app-entertainment',
   templateUrl: './entertainment.component.html',
-  styleUrls: ['./entertainment.component.css']
+  styleUrls: ['./entertainment.component.css'],
+  providers: [OfferService]
 })
 export class EntertainmentComponent {
   constructor(private offer_service: OfferService){}
@@ -12,6 +13,8 @@ export class EntertainmentComponent {
 
   ngOnInit(){
       this.offer_service.getOffersByCategory("diversao")
-      .then(offers=>this.offers=offers)
+      .then((offers)=>{
+        this.offers=offers
+      })
   }
 }
