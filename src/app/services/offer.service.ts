@@ -1,8 +1,8 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
-import { firstValueFrom } from "rxjs"
+import { firstValueFrom, Observable, pipe } from "rxjs"
 import { Offer } from "../shared/offer.model"
-
+import { map } from 'rxjs/operators'
 @Injectable()//é necessário decorar a classe com essa diretiva para indicar que ela poderá fornecer um serviço
 export class OfferService{
 
@@ -36,7 +36,10 @@ export class OfferService{
                     return res[0].description
                 })
     }
-    public searchOffer(): any{
+    public searchOffer(search: string): Observable<Offer[]>{
+
+        return this.http.get(`${this.urlAPI}/offer?description=${search}`)
+        .pipe(map((res: any)=>res))
 
     }
     // Utilizando metodo getOffers de forma assíncrona
