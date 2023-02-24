@@ -10,16 +10,24 @@ import { Offer } from '../shared/offer.model';
   providers:[OfferService]
 })
 export class TopComponent  {
-  
+  txtSearch: string = ''
   offer: Observable<Offer[]> = new Observable
   
   constructor(
     private offer_service: OfferService
   ){}
 
-  public search(event: string): void{
-      this.offer_service.searchOffer(event).subscribe({
-        next(value) {
+  public updateSearch(event: Event){
+    this.txtSearch = (<HTMLInputElement>event.target).value
+    if(this.txtSearch!=''||undefined){
+      this.search(this.txtSearch)
+    }
+  }
+
+  public search(str:string): void{
+  
+      this.offer_service.searchOffer(str).subscribe({
+        next(value: Offer[]) {
           console.log(value)
         },
       })
