@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http"
+import { HttpClient, HttpResponse } from "@angular/common/http"
 import { Injectable } from "@angular/core"
 import { firstValueFrom, Observable, pipe } from "rxjs"
 import { Offer } from "../shared/offer.model"
@@ -41,7 +41,10 @@ export class OfferService{
         return this.http.get(`${this.urlAPI}/offers?description_like=${search}`)
         .pipe(
             retry(3),
-            map((res: any)=>res)
+            map((res: any)=>{
+                // console.log(res)
+                return res
+            })
         )
 
     }

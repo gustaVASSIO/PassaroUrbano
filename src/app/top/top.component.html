@@ -6,16 +6,21 @@
         <img src="/assets/logo.png" />
       </a>
       <div id="search">
-        <!-- 
-          também é possivel chamar um método assim
-          #txtSearch
-          (input)="search(txtSearch.value)"
-         -->
         <input 
         type="text" class="form-control" 
         placeholder="Pesquise por ofertas"
-        (input)="updateSearch($event)"
+        #txtSearch
+        (input)="search(txtSearch.value)"
         >
+        
+        <div *ngIf="offers.length != 0">
+          <ul class="list-group" style="position: absolute;" >
+            <div *ngFor="let offer of offers">
+              <li class="list-group-item"><a [routerLink]="['offer/',offer.id]">{{offer.title}}</a></li>
+            </div>
+        </ul>
+        </div>
+        
       </div>
       <a a href="#"><img src="/assets/carrinho.png" /></a>
     </div>
