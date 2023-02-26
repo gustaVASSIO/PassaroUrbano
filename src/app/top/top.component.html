@@ -12,7 +12,7 @@
         #txtSearch
         (input)="search(txtSearch.value)"
         >
-        
+        <!-- utilizando pipes para modificar a exibição textual de variaveis -->
         <div *ngIf="offers.length != 0">
           <ul class="list-group" style="position: absolute;" >
             <div *ngFor="let offer of offers">

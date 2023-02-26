@@ -8,8 +8,13 @@ import {Offer} from '../shared/offer.model'
   providers:[OfferService]
 })
 export class RestaurantComponent {
-  constructor(private offer_service: OfferService){}
+  
+
   public restaurants: Array<any>=[]
+
+  // dateTest: Date = new Date(2023,1,26)
+
+  constructor(private offer_service: OfferService){}
 
   ngOnInit(){
       this.offer_service.getOffersByCategory("restaurante")
