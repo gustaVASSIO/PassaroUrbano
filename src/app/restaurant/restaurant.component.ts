@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { OfferService } from '../services/offer.service';
-import {Offer} from '../shared/offer.model'
+import {Offer} from '../shared/models/offer.model'
 @Component({
   selector: 'app-restaurant',
   templateUrl: './restaurant.component.html',

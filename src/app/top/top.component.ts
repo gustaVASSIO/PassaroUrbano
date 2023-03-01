@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Observable, Subject, catchError, debounceTime, distinctUntilChanged, switchMap, of} from 'rxjs';
 import { OfferService } from '../services/offer.service';
-import { Offer } from '../shared/offer.model';
+import { Offer } from '../shared/models/offer.model';
 
 @Component({
   selector: 'app-top',
@@ -11,7 +11,7 @@ import { Offer } from '../shared/offer.model';
 })
 export class TopComponent  {
 
-  offersOsb: Observable<Offer[]> = new Observable
+  offersObs: Observable<Offer[]> = new Observable
   
   offers: any[] = []
   
@@ -28,7 +28,7 @@ export class TopComponent  {
   //   }
   // }
   ngOnInit(){
-    this.offersOsb = this.subjectSearch
+    this.offersObs = this.subjectSearch
     .pipe(
       debounceTime(1 *1000),//executa a ação do switchMap apos 1,5 s
       distinctUntilChanged(),//verifica se o termo da pesquisa atual é diferente do termo da pesquisa anterior 
@@ -44,8 +44,8 @@ export class TopComponent  {
         return of<Offer[]>([])
       })
     )
-
-    this.offersOsb.subscribe({next:(offer: Offer[])=>{
+      
+    this.offersObs.subscribe({next:(offer: Offer[])=>{
       this.offers = offer
       console.log("Ofertas", this.offers)
     }})

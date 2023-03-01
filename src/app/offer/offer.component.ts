@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Observable, interval, Subscription } from 'rxjs';
 //recuperando parâmetros com Snapshot
-import { ActivatedRoute } from '@angular/router';
-import { Offer } from '../shared/offer.model';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Offer } from '../shared/models/offer.model';
 import { OfferService } from '../services/offer.service';
 @Component({
   selector: 'app-offer',
@@ -21,8 +21,10 @@ export class OfferComponent {
 
 
   ngOnInit() {
-    const { id } = this.route.snapshot.params //utilizando o snapshot para recuperar os parâmetros da rota
-    this.offer_service.getOfferById(id)
+    // pegando paramêtros da rota com subscribe
+    this.route.params.subscribe((param: Params)=>{ 
+      const {id} = param
+       this.offer_service.getOfferById(id)
       .then(ofs => {
         this.offer = ofs
         this.firstImage = this.offer.images[0].url
@@ -31,6 +33,19 @@ export class OfferComponent {
       .catch(err => {
         console.error(err);
       })
+    })
+    
+    // const { id } = this.route.snapshot.params //utilizando o snapshot para recuperar os parâmetros da rota
+    // this.offer_service.getOfferById(id)
+    //   .then(ofs => {
+    //     this.offer = ofs
+    //     this.firstImage = this.offer.images[0].url
+    //     this.offer.images = this.offer.images.splice(1, 2)
+    //   })
+    //   .catch(err => {
+    //     console.error(err);
+    //   })
+   
 
     /* 
      o metodo subscribe observa alterações nas rotas

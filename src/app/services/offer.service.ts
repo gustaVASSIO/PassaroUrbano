@@ -1,7 +1,7 @@
 import { HttpClient, HttpResponse } from "@angular/common/http"
 import { Injectable } from "@angular/core"
 import { firstValueFrom, Observable, pipe } from "rxjs"
-import { Offer } from "../shared/offer.model"
+import { Offer } from "../shared/models/offer.model"
 import { map, retry } from 'rxjs/operators'
 @Injectable()//é necessário decorar a classe com essa diretiva para indicar que ela poderá fornecer um serviço
 export class OfferService{

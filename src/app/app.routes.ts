@@ -1,10 +1,12 @@
 import {Routes} from '@angular/router'
+// importando components
 import {HomeComponent} from './home/home.component'
 import {RestaurantComponent} from './restaurant/restaurant.component'
 import {EntertainmentComponent} from './entertainment/entertainment.component'
 import { OfferComponent } from './offer/offer.component'
 import { HowToUseComponent } from './offer/how-to-use/how-to-use.component'
 import { LocaleComponent } from './offer/locale/locale.component'
+import { OrderBuyComponent } from './order-buy/order-buy.component'
 
 export const ROUTES: Routes =[
     {path:'', component:HomeComponent},
@@ -18,5 +20,6 @@ export const ROUTES: Routes =[
         {path:"how-to-use", component:HowToUseComponent},
         {path:'locale', component:LocaleComponent}
     ]
-    }
+    },
+    {path:'order-buy', component:OrderBuyComponent}
 ]

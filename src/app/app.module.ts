@@ -1,4 +1,8 @@
-import { NgModule } from '@angular/core';
+// utilizando padrão de moeda brasileira
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from "@angular/common";
+import localePt from "@angular/common/locales/pt";
+
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http' 
 import { AppComponent } from './app.component';
@@ -7,11 +11,17 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { EntertainmentComponent } from './entertainment/entertainment.component';
+// routes
 import {ROUTES} from './app.routes';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+
 import { OfferComponent } from './offer/offer.component';
 import { HowToUseComponent } from './offer/how-to-use/how-to-use.component';
 import { LocaleComponent } from './offer/locale/locale.component';
+import { ShortDescription } from './shared/short-description.pipe';
+import { OrderBuyComponent } from './order-buy/order-buy.component';
+registerLocaleData(localePt,'pt');
+
 
 @NgModule({
   declarations: [
@@ -23,14 +33,16 @@ import { LocaleComponent } from './offer/locale/locale.component';
     EntertainmentComponent,
     OfferComponent,
     HowToUseComponent,
-    LocaleComponent
+    LocaleComponent,
+    ShortDescription,
+    OrderBuyComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [{provide:LOCALE_ID, useValue:'pt'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
