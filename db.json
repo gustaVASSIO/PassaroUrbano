@@ -156,6 +156,34 @@
       "complement": "/",
       "payment_type": "dinheiro",
       "id": 4
+    },
+    {
+      "adress": "Rua XYZA",
+      "number": "90",
+      "complement": "/",
+      "payment_type": "dinheiro",
+      "id": 5
+    },
+    {
+      "adress": "RUA XZAD",
+      "number": "1",
+      "complement": "/",
+      "payment_type": "dinheiro",
+      "id": 6
+    },
+    {
+      "adress": "RUA dasdas",
+      "number": "0",
+      "complement": "/",
+      "payment_type": "dinheiro",
+      "id": 7
+    },
+    {
+      "adress": "Rua ywsx",
+      "number": "0",
+      "complement": "/",
+      "payment_type": "dinheiro",
+      "id": 8
     }
   ]
 }

@@ -20,9 +20,7 @@ export class OrderService{
                 `${this.urlAPI}/orders`,
                 (order),
                 ({headers:headers})
-        ).pipe(map((res: Response)=>{
-            console.log(res)
-        }))
+        ).pipe(map((res: Response)=>res))
 
     }
 
