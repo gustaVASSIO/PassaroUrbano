@@ -1,6 +1,6 @@
 <div class="container">
   <div class="ordem-compra">
-    <form novalidate #form="ngForm">
+    <form novalidate #form="ngForm" (ngSubmit)="confirmPurchase()">
     
       <h5>Sua Compra</h5>
       <hr />
@@ -62,8 +62,9 @@
       </div>
       <br />
 
-      <pre>  {{ form.value  | json  }}
-      <h5>Dados de entrega</h5></pre>
+      <pre> Valido {{ form.valid  | json  }}</pre>
+      <pre>  INVALIDO {{ form.invalid  | json  }}</pre>
+      <h5>Dados de entrega</h5>
     
       <hr />
 
@@ -89,7 +90,7 @@
             class="form-control is-valid" 
             placeholder="Número" 
             autocomplete="off" 
-            minlength="1"
+            minlength="1" 
             required
             name="number"
             ngModel 
@@ -132,7 +133,7 @@
 
       <hr />
       <button 
-        type="button" 
+        type="submit" 
         class="btn btn-primary btn-lg"
       >Cofirmar compra</button>
     </form>

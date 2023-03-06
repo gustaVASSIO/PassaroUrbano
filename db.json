@@ -184,6 +184,34 @@
       "complement": "/",
       "payment_type": "dinheiro",
       "id": 8
+    },
+    {
+      "adress": "",
+      "number": "",
+      "complement": "",
+      "payment_type": "",
+      "id": 9
+    },
+    {
+      "adress": "",
+      "number": "",
+      "complement": "",
+      "payment_type": "",
+      "id": 10
+    },
+    {
+      "adress": "",
+      "number": "",
+      "complement": "",
+      "payment_type": "",
+      "id": 11
+    },
+    {
+      "adress": "",
+      "number": "",
+      "complement": "",
+      "payment_type": "",
+      "id": 12
     }
   ]
 }
