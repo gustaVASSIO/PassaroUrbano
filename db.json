@@ -212,6 +212,20 @@
       "complement": "",
       "payment_type": "",
       "id": 12
+    },
+    {
+      "adress": "Rua 1234",
+      "number": "0",
+      "complement": "/",
+      "payment_type": "debito",
+      "id": 13
+    },
+    {
+      "adress": "Rua Fran",
+      "number": "0",
+      "complement": "/",
+      "payment_type": "debito",
+      "id": 14
     }
   ]
 }

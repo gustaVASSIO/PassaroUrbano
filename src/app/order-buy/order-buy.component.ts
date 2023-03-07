@@ -22,9 +22,9 @@ export class OrderBuyComponent {
   }
 
   confirmPurchase(){
-
-    const order: Order = new Order('','','','')
-    console.log(this.form.value)
+    const {adress, number, complement, payment_type} = this.form.value
+    const order: Order = new Order(adress,number,complement,payment_type)
+    console.log(adress, number, complement, payment_type)
     this.oder_service.confirmPurchase(order)
     .subscribe({next:(value)=>this.idOrderBuy = value.id})
   }

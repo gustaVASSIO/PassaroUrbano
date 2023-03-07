@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="ordem-compra">
+  <div class="ordem-compra" *ngIf="idOrderBuy == undefined">
     <form novalidate #form="ngForm" (ngSubmit)="confirmPurchase()">
     
       <h5>Sua Compra</h5>
@@ -73,31 +73,35 @@
         <div class="form-group col-md-6">
           <input 
             type="text" 
-            class="form-control is-invalid" 
+            class="form-control" 
             placeholder="Endereço" 
             autocomplete="off" 
             minlength="5" 
             required
             name="adress"
             ngModel 
+            #adress="ngModel"
           >
-          <small class="form-text text-danger">Endereço inválido</small>
+          <small *ngIf="!adress.valid && adress.touched" class="form-text text-danger">Endereço inválido</small>
+          <small *ngIf="adress.valid && adress.touched" class="form-text text-success">Ok</small>
         </div>
-
+        <br>
         <div class="form-group col-md-2">
           <input 
             type="text" 
-            class="form-control is-valid" 
+            class="form-control" 
             placeholder="Número" 
             autocomplete="off" 
             minlength="1" 
             required
             name="number"
             ngModel 
+            #number="ngModel"
             >
-          <small class="form-text text-success">Ok</small>
+          <small *ngIf="!number.valid && number.touched" class="form-text text-success">Numero invalido</small>
+          <small *ngIf="number.valid && number.touched" class="form-text text-success">Ok</small>
         </div>
-
+        <br>
         <div class="form-group col-md-4">
           <input 
             type="text" 
@@ -119,15 +123,17 @@
           
         <div class="form-group col-md-3">
           <select 
-            class="form-control is-invalid"
+            class="form-control"
             name="payment_type"
             ngModel 
+            #payment="ngModel"
           >
             <option value="">Selecione uma opção</option>
             <option value="dinheiro">Dinheiro</option>
             <option value="debito">Débito</option>
           </select>
-          <small class="form-text text-danger">Forma de pagamento inválida</small>
+          <small *ngIf="!payment.valid && payment.touched"  class="form-text text-danger">Forma de pagamento inválida</small>
+          <small *ngIf="payment.valid && payment.touched"  class="form-text text-success">Ok</small>
         </div>
       </div>
 
@@ -137,5 +143,8 @@
         class="btn btn-primary btn-lg"
       >Cofirmar compra</button>
     </form>
+  </div>
+  <div class="ordem-compra" *ngIf="idOrderBuy != undefined">
+    <app-buy-succes [idOrder]="idOrderBuy"></app-buy-succes>
   </div>
 </div>
