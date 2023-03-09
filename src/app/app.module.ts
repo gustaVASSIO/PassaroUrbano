@@ -11,7 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { EntertainmentComponent } from './entertainment/entertainment.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // routes
 import {ROUTES} from './app.routes';
 import { RouterModule } from '@angular/router';
@@ -43,7 +43,8 @@ registerLocaleData(localePt,'pt');
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule,
+    //FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [{provide:LOCALE_ID, useValue:'pt'}],
