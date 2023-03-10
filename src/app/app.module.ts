@@ -22,6 +22,7 @@ import { LocaleComponent } from './offer/locale/locale.component';
 import { ShortDescription } from './shared/short-description.pipe';
 import { OrderBuyComponent } from './order-buy/order-buy.component';
 import { BuySuccesComponent } from './buy-succes/buy-succes.component';
+import { CarShopService } from './services/carshop.service';
 registerLocaleData(localePt,'pt');
 
 
@@ -47,7 +48,7 @@ registerLocaleData(localePt,'pt');
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [{provide:LOCALE_ID, useValue:'pt'}],
+  providers: [CarShopService, {provide:LOCALE_ID, useValue:'pt'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

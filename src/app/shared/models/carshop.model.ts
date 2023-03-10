@@ -1,6 +1,10 @@
 export class ItemCarshop{
     constructor(
-        id:number,
-        
+        public id: number,
+        public img:any,
+        public title:string,
+        public description:string,
+        public value:number,
+        public amount: number
     ){}
 }

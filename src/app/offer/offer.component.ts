@@ -4,6 +4,7 @@ import { Observable, interval, Subscription } from 'rxjs';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Offer } from '../shared/models/offer.model';
 import { OfferService } from '../services/offer.service';
+import { CarShopService } from '../services/carshop.service';
 @Component({
   selector: 'app-offer',
   templateUrl: './offer.component.html',
@@ -16,7 +17,8 @@ export class OfferComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private offer_service: OfferService//injetando offer.service neste componente
+    private offer_service: OfferService,//injetando offer.service neste componente
+    private carshop_service:CarShopService
   ) { }
 
 
@@ -55,10 +57,10 @@ export class OfferComponent {
 
     // this.route.params.subscribe(({id})=>{   
     //   console.log(id)
-    // })
-  
+    // })   
   }
 
-  ngOnDestroy(){
+  addItem(){
+    this.carshop_service.addItem(this.offer)
   }
 } 

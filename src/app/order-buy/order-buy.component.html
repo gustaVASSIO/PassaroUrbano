@@ -5,61 +5,44 @@
       <h5>Sua Compra</h5>
       <hr />
 
-      <div class="form-row" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
+      <div *ngIf="itensCarShop.length != 0 ">
+         <div  *ngFor="let item of itensCarShop" class="form-row" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
         <div class="form-group col-sm-1">
-          <img src="/assets/ofertas/1/img1.jpg" class="img-fluid">
+          <img [src]="item.img.url" class="img-fluid">
         </div>
         <div class="form-group col-sm-6">
-          Super Burger
+          {{item.title}}
           <br />
-          Rodízio de Mini-hambúrger com opção de entrada.
+          {{item.description}}
         </div>
 
         <div>
           <div class="row">
             <div class="col">
-              <button type="button" class="btn btn-link">-</button>
-              1
-              <button type="button" class="btn btn-link">+</button>
+              <button type="button" (click)="subtractAmount(item)" class="btn btn-link">-</button>
+              {{item.amount}}
+              <button type="button" (click)="addAmount(item)" class="btn btn-link">+</button>
             </div>
           </div>
         </div>
 
         <div class="form-group col-sm-3 d-flex justify-content-end">
-          29.90
+          {{item.value * item.amount | currency:'BRL':true}}
         </div>
       </div>
       
-      <div class="form-row" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
-        <div class="form-group col-sm-1">
-          <img src="/assets/ofertas/4/img1.jpg" class="img-fluid">
-        </div>
-        <div class="form-group col-sm-6">
-          Estância das águas
-          <br />
-          Diversão garantida com piscinas, trilhas e muito mais.
-        </div>
-
-        <div>
-          <div class="row">
-            <div class="col">
-              <button type="button" class="btn btn-link">-</button>
-              1
-              <button type="button" class="btn btn-link">+</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group col-sm-3 d-flex justify-content-end">
-          31.90
-        </div>
-      </div>
       
       <div class="form-row">
         <div class="form-group col d-flex justify-content-end">
-          <h4>Total do pedido: 61.80</h4>
+          <h4>{{carshop_service.calcTotal() |currency:'BRL':true}}</h4>
         </div>
       </div>
+      </div>
+
+      <div *ngIf="itensCarShop.length == 0 " class="form-row d-flex justify-content-center" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
+        <h4>Seu carrinho está vazio, aproveite as ofertas!</h4>
+      </div>
+
       <br />
 
       <h5>Dados de entrega</h5>
@@ -88,7 +71,7 @@
             formControlName="number"
           >
           <small class="form-text text-success"  *ngIf="form.get('number')?.valid && form.get('number')?.touched">Ok</small>
-          <small class="form-text text-danger" *ngIf="form.get('number')?.invalid && form.get('number')?.touched">Endereço invalido</small>
+          <small class="form-text text-danger" *ngIf="form.get('number')?.invalid && form.get('number')?.touched">Numero invalido</small>
         </div>
         <br>
 
@@ -106,6 +89,7 @@
       </div>
       <br />
 
+
       <h5>Dados de pagamento</h5>
       <hr />
 
@@ -116,12 +100,12 @@
             class="form-control"
             formControlName="paymentType"
           >
-            <option value="">Selecione uma opção</option>
+            <option value="" disabled>Selecione uma opção</option>
             <option value="dinheiro">Dinheiro</option>
             <option value="debito">Débito</option>
           </select>
           <small class="form-text text-success"  *ngIf="form.get('paymentType')?.valid && form.get('paymentType')?.touched">Ok</small>
-          <small class="form-text text-danger" *ngIf="form.get('paymentType')?.invalid && form.get('paymentType')?.touched">Endereço invalido</small>
+          <small class="form-text text-danger" *ngIf="form.get('paymentType')?.invalid && form.get('paymentType')?.touched">Forma de pagamento invalida</small>
         </div>
       </div>
 

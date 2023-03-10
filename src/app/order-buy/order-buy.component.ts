@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, NgForm, Validators } from '@angular/forms';
+import { CarShopService } from '../services/carshop.service';
 import { OrderService } from '../services/order.service';
+import { ItemCarshop } from '../shared/models/carshop.model';
 import { Order } from '../shared/models/order.model';
 
 @Component({
@@ -15,29 +17,50 @@ export class OrderBuyComponent {
     "adress": new  FormControl(null,[Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
     "number":new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]\d*$/)]),
     "complement":new FormControl(null),
-    "paymentType":new FormControl(null, [Validators.required])
+    "paymentType":new FormControl("", [Validators.required])
   })
 
   idOrderBuy?: number
 
-  constructor(private oder_service: OrderService){}
+  itensCarShop: ItemCarshop[] = []
+
+  constructor(
+    private oder_service: OrderService,
+    public carshop_service: CarShopService
+    ){}
 
   ngOnInit(){
     
+    this.itensCarShop = this.carshop_service.getItens()
+    //this.totalItens = this.carshop_service.calcTotal()
   }
 
   confirmPurchase(){
 
     if(this.validateForm()){
-      console.log(this.form)
+     if(this.itensCarShop.length !== 0){
+       
+        const {adress, number, complement, payment_type} = this.form.value
+        
+        const order: Order = new Order(adress,number,complement,payment_type, this.itensCarShop)
+        
+        console.log(order)
+        
+        this.oder_service.confirmPurchase(order)
+        .subscribe({next:(value)=>{
+          this.idOrderBuy = value.id
+          this.carshop_service.clearCarShop()
+          this.itensCarShop = []
+        }})
+     
+    
+      }else{
+      alert('Você não possui itens no seu carrinho')
+     }
     }else{
       console.log('form invalid')
     }
-    //const {adress, number, complement, payment_type} = this.form.value
-    //const order: Order = new Order(adress,number,complement,payment_type)
-    //console.log(adress, number, complement, payment_type)
-   // this.oder_service.confirmPurchase(order)
-    //.subscribe({next:(value)=>this.idOrderBuy = value.id})
+
   }
 
   validateForm():boolean{
@@ -54,6 +77,14 @@ export class OrderBuyComponent {
      
       return true
     }
+  }
+
+  addAmount(item: ItemCarshop){
+      this.carshop_service.addAmount(item)
+  }
+
+  subtractAmount(item: ItemCarshop){
+    this.carshop_service.subtractAmount(item)
   }
 
 }

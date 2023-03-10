@@ -137,95 +137,88 @@
       "id": 1
     },
     {
-      "adress": "Rua WXYZ",
-      "number": "9",
+      "adress": "Rua abc",
+      "number": "0",
       "complement": "/",
-      "payment_type": "dinheiro",
+      "itens": [
+        {
+          "id": 2,
+          "img": {
+            "url": "/assets/ofertas/2/img2.jpg"
+          },
+          "title": "Cozinha Mexicana",
+          "description": "Almoço ou Jantar com Rodízio Mexicano delicioso.",
+          "value": 32.9,
+          "amount": 2
+        },
+        {
+          "id": 4,
+          "img": {
+            "url": "/assets/ofertas/4/img2.jpg"
+          },
+          "title": "Estância das águas",
+          "description": "Diversão garant a com piscinas, trilhas e muito mais.",
+          "value": 31.9,
+          "amount": 2
+        }
+      ],
       "id": 2
     },
     {
-      "adress": "Rua ffffff",
-      "number": "9",
+      "adress": "Rua def",
+      "number": "1",
       "complement": "/",
-      "payment_type": "dinheiro",
+      "itens": [
+        {
+          "id": 2,
+          "img": {
+            "url": "/assets/ofertas/2/img2.jpg"
+          },
+          "title": "Cozinha Mexicana",
+          "description": "Almoço ou Jantar com Rodízio Mexicano delicioso.",
+          "value": 32.9,
+          "amount": 1
+        },
+        {
+          "id": 1,
+          "img": {
+            "url": "/assets/ofertas/1/img2.jpg"
+          },
+          "title": "Super Burger",
+          "description": "Rodízio de Mini-hambúrger com opção de entrada.",
+          "value": 29.9,
+          "amount": 1
+        },
+        {
+          "id": 4,
+          "img": {
+            "url": "/assets/ofertas/4/img2.jpg"
+          },
+          "title": "Estância das águas",
+          "description": "Diversão garant a com piscinas, trilhas e muito mais.",
+          "value": 31.9,
+          "amount": 1
+        }
+      ],
       "id": 3
     },
     {
-      "adress": "Rua ffff",
-      "number": "9",
+      "adress": "Rua fas",
+      "number": "0",
       "complement": "/",
-      "payment_type": "dinheiro",
+      "itens": [
+        {
+          "id": 1,
+          "img": {
+            "url": "/assets/ofertas/1/img2.jpg"
+          },
+          "title": "Super Burger",
+          "description": "Rodízio de Mini-hambúrger com opção de entrada.",
+          "value": 29.9,
+          "amount": 1
+        }
+      ],
       "id": 4
-    },
-    {
-      "adress": "Rua XYZA",
-      "number": "90",
-      "complement": "/",
-      "payment_type": "dinheiro",
-      "id": 5
-    },
-    {
-      "adress": "RUA XZAD",
-      "number": "1",
-      "complement": "/",
-      "payment_type": "dinheiro",
-      "id": 6
-    },
-    {
-      "adress": "RUA dasdas",
-      "number": "0",
-      "complement": "/",
-      "payment_type": "dinheiro",
-      "id": 7
-    },
-    {
-      "adress": "Rua ywsx",
-      "number": "0",
-      "complement": "/",
-      "payment_type": "dinheiro",
-      "id": 8
-    },
-    {
-      "adress": "",
-      "number": "",
-      "complement": "",
-      "payment_type": "",
-      "id": 9
-    },
-    {
-      "adress": "",
-      "number": "",
-      "complement": "",
-      "payment_type": "",
-      "id": 10
-    },
-    {
-      "adress": "",
-      "number": "",
-      "complement": "",
-      "payment_type": "",
-      "id": 11
-    },
-    {
-      "adress": "",
-      "number": "",
-      "complement": "",
-      "payment_type": "",
-      "id": 12
-    },
-    {
-      "adress": "Rua 1234",
-      "number": "0",
-      "complement": "/",
-      "payment_type": "debito",
-      "id": 13
-    },
-    {
-      "adress": "Rua Fran",
-      "number": "0",
-      "complement": "/",
-      "payment_type": "debito",
-      "id": 14
     }
   ]
 }
